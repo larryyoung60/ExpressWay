@@ -1,0 +1,12 @@
+{
+  "name": "ExpressWayMaintain",
+  "app_id": "2fc8341c",
+  "typescript": true,
+  "v2": true,
+  "proxies": [
+    {
+      "path": "/wcf/",
+      "proxyUrl": "http://61.136.61.40:8185/PDAService.svc"
+    }
+  ]
+}
