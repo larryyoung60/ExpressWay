@@ -1,0 +1,19 @@
+<ion-navbar *navbar primary>
+  <ion-title>{{pageOptions.title}}</ion-title>
+  <ion-buttons end>
+    <button large (click)="save()">
+      <ion-icon name="send"></ion-icon>
+      {{pageOptions.saveButtonText}}
+    </button>
+  </ion-buttons>
+</ion-navbar>
+<ion-content scroll-x="false" scroll-y="false" fullscreen class="tab-content">
+  <ion-tabs #myTabs tabbarPlacement="bottom" tabbarLayout1="icon-left" primary>
+    <ion-tab [root]="mainPage" [rootParams]="mainParams" 
+    [tabTitle]="mainParams.title" [tabIcon]="mainParams.icon"></ion-tab>
+    <ion-tab [root]="detailPage" [rootParams]="detailParams" 
+    [tabTitle]="detailParams.title" [tabIcon]="detailParams.icon" [tabBadge]="detail.length" tabBadgeStyle="danger"></ion-tab>
+    <ion-tab [root]="mediaPage" [rootParams]="mediaParams" 
+    [tabTitle]="mediaParams.title" [tabIcon]="mediaParams.icon" [tabBadge]="medias.length" tabBadgeStyle="danger"></ion-tab>
+  </ion-tabs>
+</ion-content>

@@ -1,0 +1,44 @@
+<ion-content class="business-form">
+  <form #mainForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label required>复查日期</ion-label>
+        <ion-input type="date" [(ngModel)]="result.feedbackTime" ngControl="feedbackTime" #feedbackTime="ngForm" placeholder="复查日期" required></ion-input>
+      </ion-item>      
+      <ion-item>
+        <ion-label required>　复查人</ion-label>
+        <ion-input type="text" [(ngModel)]="result.feedbackUser" ngControl="feedbackUser" #feedbackUser="ngForm" placeholder="填写复查人" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label required>复查结果</ion-label>
+        <ion-select [(ngModel)]="result.fuchaResult" cancelText="取消" okText="确定" interface="action-sheet">
+          <ion-option [value]="item" *ngFor="let item of reviewResults">{{item}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="result.fuchaResult != '申请延期'">
+        <ion-label>整改期限</ion-label>
+        <span item-right>{{result.checkDate}} ~ {{result.askFinishedDate}}</span>
+      </ion-item>
+      <ion-item *ngIf="result.fuchaResult == '申请延期'">
+        <ion-label required>整改期限</ion-label>
+        <ion-input type="date" [(ngModel)]="result.checkDate" ngControl="checkDate" #checkDate="ngForm" placeholder="开始日期"></ion-input>
+        <ion-input type="date" [(ngModel)]="result.askFinishedDate" ngControl="askFinishedDate" #askFinishedDate="ngForm" placeholder="完成日期"></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label required>扣　　分</ion-label>
+        <ion-select [(ngModel)]="result.fuchaKoufen" interface="action-sheet" cancelText="取消" okText="确定">
+          <ion-option [value]="item" *ngFor="let item of fens">{{item}}</ion-option>
+        </ion-select>   
+        <span item-right>分</span>                        
+      </ion-item>
+      <ion-item>
+        <ion-label>复查说明</ion-label>
+        <ion-textarea type="text" [(ngModel)]="result.fuchaDesc" ngControl="fuchaDesc" #fuchaDesc="ngForm"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>备　　注</ion-label>
+        <ion-textarea type="text" [(ngModel)]="result.fuchaMemo" ngControl="fuchaMemo" #fuchaMemo="ngForm"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

@@ -1,0 +1,36 @@
+
+<ion-content class="business-form">
+    <ion-list>
+      <ion-item-divider light>项目问题信息</ion-item-divider>
+      <ion-item>
+        项目名称
+        <span item-right>{{trouble.project_name}}</span>        
+      </ion-item>  
+      <ion-item>
+        问题类型
+        <span item-right>{{trouble.trou_type}}</span>        
+      </ion-item>  
+
+       <ion-item>
+        问题描述
+        <span item-right>{{trouble.trou_desc}}</span>        
+      </ion-item>  
+
+       <ion-item>
+        当前状态
+        <span item-right>{{trouble.cur_status}}</span>     
+      </ion-item>  
+    <ion-item>
+        是否停工
+        <span item-right>{{trouble.isstop}}</span>     
+      </ion-item>  
+     <ion-item>
+        问题发现时间
+        <span item-right>{{trouble.find_date}}</span>     
+      </ion-item>
+     <ion-item>
+        限定完成时间
+        <span item-right>{{trouble.limit_date}}</span>     
+      </ion-item>  
+    </ion-list>
+</ion-content>

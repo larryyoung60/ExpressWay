@@ -1,0 +1,41 @@
+// http://ionicframework.com/docs/v2/theming/
+
+
+// App Shared Imports
+// --------------------------------------------------
+// These are the imports which make up the design of this app.
+// By default each design mode includes these shared imports.
+// App Shared Sass variables belong in app.variables.scss.
+
+
+@import "../app";
+@import "../pages/loader/loader";
+@import "../pages/welcome/welcome";
+@import "../pages/login/login";
+@import "../pages/setting/setting";
+@import "../pages/localdata/localdata";
+
+
+@import "../pages/common/photo-album-modal/photo-album-modal";
+@import "../pages/common/photo-preview-modal/photo-preview-modal";
+@import "../pages/common/detail/detail";
+@import "../pages/common/detail/form";
+
+//business
+@import "../pages/business/index/index";
+@import "../pages/business/base/base";
+@import "../pages/business/empty/empty";
+@import "../pages/business/maintain/query";
+@import "../pages/business/acceptance/query";
+@import "../pages/business/correction-review/query";
+@import "../pages/business/correction-task/query";
+
+//原来按钮图标有点小 , 1.4em => 2.4rem | 1.8em
+.toolbar ion-buttons button ion-icon {font-size:2.4rem}
+ion-toolbar ion-col ion-select {padding:13px 8px;width:100%;max-width:100%}
+
+.maintain-query-page , .acceptance-query-page , .correction-review-query-page , .correction-task-query-page  {
+    .condition-toolbar {
+        font-size:16px;
+    }
+}

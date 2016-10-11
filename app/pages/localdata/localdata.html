@@ -1,0 +1,32 @@
+<ion-navbar *navbar primary>
+  <ion-title>本地数据
+    <ion-badge danger end>{{localDataRecordCount}}</ion-badge>
+  </ion-title>
+  <ion-buttons end>
+    <button large (click)="syncAll()"><ion-icon name="cloud-upload"></ion-icon>全部上传</button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content>
+  <ion-list>
+    <ion-item-sliding *ngFor="let item of sources" [class]="getItemClassName(item)">
+      <button ion-item >
+        <ion-icon name="home" item-left></ion-icon>
+        {{item.name}}
+        <div class="note" item-right>{{item.status || ""}}</div>
+        <ion-badge item-right light="true">{{item.records ? item.records.length : 0}}</ion-badge>
+      </button>
+      <ion-item-options>
+        <button primary>
+          <ion-icon name="text"></ion-icon>
+          查看记录列表
+        </button>
+        <button secondary>
+          <ion-icon name="cloud-upload"></ion-icon>
+          上传{{item.name}}
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+</ion-content>

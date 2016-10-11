@@ -1,0 +1,67 @@
+<ion-content>
+    <form #mainForm="ngForm" novalidate>
+        <ion-list> 
+        <ion-item baseline class="menucontainer">
+            <ion-label required>问题标题</ion-label>
+            <ion-input type="text" [(ngModel)]="trouble.trou_desc"  ngControl="checkDate" #checkDate="ngForm"   required></ion-input>
+        </ion-item>
+        <ion-item baseline class="menucontainer">
+            <ion-label required>问题类型</ion-label>
+            <ion-select [(ngModel)]="trouble.trou_type" interface="action-sheet" cancelText="取消" okText="确定">
+                    <ion-option value="普通问题" >普通问题</ion-option>
+                    <ion-option value="安全问题" >安全问题</ion-option>
+            </ion-select>   
+        </ion-item>
+          <ion-item baseline class="menucontainer">
+            <ion-label required>是否需要停工整改</ion-label>
+            <ion-select [(ngModel)]="trouble.isstop" interface="action-sheet" cancelText="取消" okText="确定">
+  
+                 <ion-option [value]="0" >否</ion-option>
+                 <ion-option [value]="1" >是</ion-option>
+            </ion-select>   
+        </ion-item>
+        <ion-item baseline class="menucontainer">
+            <ion-label required>发现日期</ion-label>
+            <ion-input type="date" [(ngModel)]="trouble.find_date"  ngControl="checkDate" #checkDate="ngForm"   required></ion-input>
+        </ion-item>
+
+        <ion-item baseline class="menucontainer">
+            <ion-label required>限制完成日期</ion-label>
+            <ion-input type="date" [(ngModel)]="trouble.limit_date"  ngControl="checkDate" #checkDate="ngForm"   required></ion-input>
+        </ion-item>
+
+        <ion-item baseline class="menucontainer">
+            <ion-label required>问题详细描述</ion-label>
+            <ion-textarea type="text" [(ngModel)]="trouble.ques_content"  ngControl="memo" #checkDate="ngForm"   required></ion-textarea>
+        </ion-item>
+        <ion-item baseline class="menucontainer">
+            <ion-label required>通知相关方</ion-label>
+        </ion-item>
+        <ion-item>
+            <ion-label required>监理方</ion-label>
+            <ion-checkbox class="checkbox-dark"  [(ngModel)]="trouble.officer" checked= "false" >监理方</ion-checkbox>   
+        </ion-item>
+
+        <ion-item>
+            <ion-label required>投资方</ion-label>
+            <ion-checkbox class="checkbox-dark"  [(ngModel)]="trouble.loc"   checked= "false" >监理方</ion-checkbox>   
+        </ion-item>
+        <ion-item>
+            <ion-label required>建设方</ion-label>
+            <ion-checkbox class="checkbox-dark"  [(ngModel)]="trouble.build"  checked= "false" >投资方</ion-checkbox> 
+        </ion-item>  
+        <ion-item>
+            <ion-label required>勘测方</ion-label>
+            <ion-checkbox class="checkbox-dark"  [(ngModel)]="trouble.survey"  checked= "false" ></ion-checkbox>   
+        </ion-item>     
+        <ion-item>
+            <ion-label required>设计单位</ion-label>
+            <ion-checkbox class="checkbox-dark"  [(ngModel)]="trouble.design"  checked= "false" >设计单位</ion-checkbox>      
+         </ion-item>    
+        </ion-list> 
+    </form>
+
+
+    
+
+</ion-content>

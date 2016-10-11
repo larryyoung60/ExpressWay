@@ -1,0 +1,28 @@
+<ion-navbar *navbar primary>
+  <ion-title>首页</ion-title>
+  <ion-buttons end>
+    <!--<button class="track" (click)="toggleTrack()" [ngClass]="{stop: gpsTrackIsStoped , running:!gpsTrackIsStoped}">
+      <ion-icon name="analytics"></ion-icon>
+      <span [hidden]="!gpsTrackIsStoped">轨迹未开启</span>
+      <span [hidden]="gpsTrackIsStoped">轨迹运行中</span>
+    </button>-->
+  </ion-buttons>  
+</ion-navbar>
+<ion-content padding>
+  <ion-row baseline>
+    <ion-col width-33 *ngFor="let menu of menus">
+      <div class="menuitem {{menu.cssClass}}" (click)="onMenuTap(menu)">
+        <div class="iconcon">
+          <ion-icon [name]="menu.icon" [attr.primary]="menu.page ? true : null" [attr.gray]="menu.page ? null : true"></ion-icon>
+        </div>
+        <p>{{menu.text}}</p>
+      </div>
+      <!--
+      <button block outline>
+        <ion-icon [name]="menu.icon"></ion-icon>
+        {{menu.text}}
+      </button>
+      -->
+    </ion-col>
+  </ion-row>
+</ion-content>

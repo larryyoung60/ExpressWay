@@ -1,0 +1,80 @@
+.business-form {
+  ion-select {
+    max-width:65%
+  }
+  ion-input.stakeNumK input, ion-input.stakeNumP input{
+    padding-left:20px;
+  }  
+  ion-input.stakeNumK {
+    background-color:#ffffcc
+  }
+  ion-input.stakeNumK:before {
+    position:absolute;
+    content:"K";
+    font-size:24px;
+    font-weight:bold;
+    top:11px;
+    margin-left:8px;
+    color:#999
+  }
+  ion-input.stakeNumP {
+    background-color:#e8f4ff
+  }
+    ion-input.stakeNumP:before {
+    position:absolute;
+    content:"+";
+    font-size:24px;
+    font-weight:bold;
+    top:11px;
+    margin-left:8px;
+    color:#999
+  }
+  ion-label[required] {
+    color:blue
+  }
+  toast-success {
+    background-color:#69BB7B
+  }
+  
+  ion-textarea textarea {
+    min-height:80px;
+  }
+  
+  ion-textarea:after {
+    position: absolute;
+    right: 0;
+    bottom: 0;
+    left: 16px;
+    border-bottom-width: 2px;
+    border-bottom-style: solid;
+    border-bottom-color: transparent;
+    content: "";
+  }
+  
+  ion-textarea.ng-invalid.ng-touched:after { 
+    border-bottom-color: color($colors , danger);
+  }
+  
+}
+
+.tab-content{
+  >scroll-content {
+    overflow-y:hidden;
+  }
+  ion-tabs {
+    ion-navbar-section {display:none}
+  }
+  .photo-album-button {
+    bottom:80px;
+    background-color:#ffcc00
+  }
+
+  .detail-add-button {
+    bottom:80px;
+    background-color:#ffcc00
+  }
+}
+
+.aaa {
+  width:100%;
+}

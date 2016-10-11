@@ -1,0 +1,11 @@
+<ion-content class="business-form">
+ <ion-list>
+      <button ion-item *ngFor="let item of months  let ix = index " (click)="SelectProject(item)" style="padding-left:0" >
+      <span item-left class="sn">{{ix+1}}.</span>
+      <div>
+        <strong class="caseid"><span class='taskdate' >{{item.act_date}} </span><span class='taskdate'>{{item.type }} </span><span class='taskdate'>进度:{{item.node_name}}{{item.act_process}}% </span></strong>
+      </div>
+    </button>
+
+</ion-list>
+</ion-content>

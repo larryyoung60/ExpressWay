@@ -1,0 +1,104 @@
+<ion-navbar *navbar primary>
+  <ion-title>个人设置</ion-title>
+</ion-navbar>
+
+<ion-content>
+
+  <ion-list no-border>    
+    <ion-list-header primary>个人信息</ion-list-header>
+    <ion-item>      
+      <ion-icon name='contact' item-left></ion-icon>
+      <strong>{{userInfo.truename}} - {{userInfo.dept}}</strong>
+    </ion-item>
+    <ion-list-header primary>病害记录设置</ion-list-header>
+    <ion-item>
+      <ion-icon name='cloud-upload' item-left></ion-icon>
+      <ion-toggle [(ngModel)]="setting.autoUpload" (ionChange)="changeSetting()"></ion-toggle>
+      <ion-label>自动上传数据</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='wifi' item-left></ion-icon>
+      <ion-toggle [(ngModel)]="setting.uploadOnlyWifi" (ionChange)="changeSetting()"></ion-toggle>
+      <ion-label>只在WIFI下上传数据</ion-label>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='code-working' item-left></ion-icon>
+      <ion-label>同时上传任务数</ion-label>
+      <ion-select [(ngModel)]="setting.maxUploadThread" (ionChange)="changeSetting()" cancelText="取消" okText="确定">
+        <ion-option [value]="item" *ngFor="let item of threadCounts">{{item}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <button ion-item (click)="viewLoacalData()">
+      本地数据
+      <ion-icon name='list-box' item-left></ion-icon>
+      <ion-badge item-right danger>{{localDataRecordCount}}</ion-badge>
+    </button>
+    <ion-list-header>拍照设置</ion-list-header>
+    <ion-item>
+      <ion-icon name='albums' item-left></ion-icon>
+      <ion-toggle [(ngModel)]="setting.photoSaveToAlbum" (ionChange)="changeSetting()"></ion-toggle>
+      <ion-label>App中拍摄的照片保存到相册</ion-label>
+    </ion-item>    
+    <ion-item>
+      <ion-icon name='barcode' item-left></ion-icon>
+      <ion-label>照片质量</ion-label>
+      <ion-select [(ngModel)]="setting.photoQuality" (ionChange)="changeSetting()" cancelText="取消" okText="确定" interface="action-sheet">
+        <ion-option [value]="item" *ngFor="let item of photoQualities">{{item}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='card' item-left></ion-icon>
+      <ion-label>照片尺寸</ion-label>
+      <ion-select [(ngModel)]="setting.photoSize" (ionChange)="changeSetting()" cancelText="取消" okText="确定" interface="action-sheet">
+        <ion-option [value]="item.value" *ngFor="let item of photoSizes">{{item.note}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    <ion-list-header>巡查轨迹设置</ion-list-header>
+    <ion-item>
+      <ion-icon name='barcode' item-left></ion-icon>
+      <ion-label>开启巡查轨迹记录方式<br><small>需要重启APP生效</small></ion-label>
+      <ion-select [(ngModel)]="setting.gpsTrackStartType" (ionChange)="changeSetting()" cancelText="取消" okText="确定" interface="action-sheet">
+        <ion-option [value]="item.value" *ngFor="let item of gpsTrackStartTypes">{{item.note}}</ion-option>
+      </ion-select>
+    </ion-item>
+    <ion-item>
+      <ion-icon name='card' item-left></ion-icon>
+      <ion-label>巡查轨迹记录时间间隔</ion-label>
+      <ion-select [(ngModel)]="setting.gpsTrackTime" (ionChange)="changeSetting()" cancelText="取消" okText="确定" interface="action-sheet">
+        <ion-option [value]="item.value" *ngFor="let item of gpsTrackTimes">{{item.note}}</ion-option>
+      </ion-select>
+    </ion-item>
+    
+    
+    <ion-list-header>APP相关</ion-list-header>
+    <button ion-item (click)="checkVersion()">
+      检查更新
+      <ion-icon name='alert' item-left></ion-icon>
+      <ion-note item-right>当前版本 v{{setting.version}}</ion-note>
+    </button>    
+    <button ion-item (click)="updateBaseinfo()">
+      更新基础数据
+      <ion-icon name='nuclear' item-left></ion-icon>
+      <ion-badge item-right danger>new</ion-badge>
+    </button>    
+    <button ion-item (click)="help()">
+      帮助
+      <ion-icon name='help' item-left></ion-icon>
+    </button>
+    <button ion-item (click)="aboutApp()">
+      关于道路养护系统
+      <ion-icon name='at' item-left></ion-icon>
+    </button>
+    <button ion-item (click)="aboutCompany()">
+      关于容数科技
+      <ion-icon name='umbrella' item-left></ion-icon>
+    </button>
+
+    <div padding>
+      <button (click)="logout()" danger block large>退出登录</button>
+    </div>
+
+  </ion-list>
+
+</ion-content>

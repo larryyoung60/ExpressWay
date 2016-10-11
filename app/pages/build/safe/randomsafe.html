@@ -1,0 +1,28 @@
+
+<ion-content>
+    <form #mainForm="ngForm" novalidate>
+ 
+        <ion-item>
+            <ion-label>标题</ion-label>
+            <ion-input type ="text"  placeholder="请填写标题" [(ngModel)]="result.title" ngControl="title" #memo="ngForm"></ion-input>
+        </ion-item>
+        <ion-item>
+            <ion-label>开始日期</ion-label>
+               <ion-input type="date" [(ngModel)]="result.plan_begin"  #feedbackTime="ngForm" placeholder="开始日期" required></ion-input>
+        </ion-item>
+       <ion-item>
+            <ion-label>结束日期</ion-label>
+               <ion-input type="date" [(ngModel)]="result.end_time"  #feedbackTime="ngForm" placeholder="结束日期" required></ion-input>
+        </ion-item>        
+        
+        <ion-item>
+            <ion-label>问题简介</ion-label>
+            <ion-input type="text" [(ngModel)]="result.item_title"  #feedbackTime="ngForm" placeholder="问题简介" required></ion-input>
+        </ion-item>      
+        <ion-item>
+            <ion-label>问题内容</ion-label>
+            <ion-input type="text" [(ngModel)]="result.item_content"  #feedbackTime="ngForm" placeholder="问题内容" required></ion-input>
+        </ion-item>     
+    
+    </form>
+</ion-content>

@@ -1,0 +1,32 @@
+<ion-content class="common-detail-page">
+  <h3 *ngIf="items.length==0" text-center gray>还没有{{detailParams.title}},点击下面 + 按钮添加!</h3>
+  <ion-list #detailList>
+    <ion-item-sliding #slidingItem *ngFor="let item of items let ix = index">
+      <ion-item>
+        <ion-checkbox *ngIf="detailParams.enableCheckbox" [(ngModel)]="item.isChecked" ></ion-checkbox>
+        <span class="sn" *ngIf="!detailParams.enableCheckbox" item-left>{{ix+1}}.</span>
+        <ion-label>
+            <strong>{{item.stakeNum}} {{item.weixiuFangAn || "无维修方案"}}</strong>
+            <p style='color:#999'>{{item.jiliangDescSave || item.jlDescNew}}</p>
+        </ion-label>       
+        <strong item-right>{{item.gongchengL || item.gongchengLiang}}{{item.jiliangUnit || item.jlUnit}}</strong>
+      </ion-item>
+      <ion-item-options>
+        <button secondary (click)="edit(item , slidingItem)">
+          <ion-icon name="create"></ion-icon>
+          修  改
+        </button>
+        <button danger (click)="delete(item , slidingItem)">
+          <ion-icon name="trash"></ion-icon>
+          删  除
+        </button>
+      </ion-item-options>
+    </ion-item-sliding>
+
+  </ion-list>
+  <!--
+  <button fab fab-fixed fab-right fab-bottom secondary class="detail-add-button" (click)="add()">
+    <ion-icon name="add"></ion-icon>
+  </button>
+  -->
+</ion-content>

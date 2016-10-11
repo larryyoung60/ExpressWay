@@ -1,0 +1,8 @@
+.localdata-page {
+    .empty .item {color:#ccc};
+    .empty ion-badge {background-color:#ccc}
+    .noempty .item {color:blue}
+    .noempty ion-badge {background-color:blue}
+    .runing .item {color:green}
+    .runing ion-badge {background-color:green}
+}

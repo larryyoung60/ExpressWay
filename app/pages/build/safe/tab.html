@@ -1,0 +1,15 @@
+<ion-navbar *navbar primary>
+  <ion-title>安全检查</ion-title>
+  <ion-buttons end>
+    <button large (click)="Save()">
+     保存并提交
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-tabs tabbarPlacement="bottom">
+   <ion-tab tabIcon="heart" [root]="addsafe"   [rootParams]= "dyParams"></ion-tab>
+   <ion-tab tabIcon="heart" [root]="photo" [rootParams] = "dyParams"></ion-tab>
+   <ion-tab tabIcon="home" [root]="mainpage"   [rootParams]= "dyParams"></ion-tab>
+
+</ion-tabs>

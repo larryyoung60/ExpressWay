@@ -1,0 +1,23 @@
+<ion-navbar primary>
+  <ion-title>附件展示</ion-title>
+  <ion-buttons end>
+    <button large (click)="presentPopover($event)" >
+        <ion-icon name="more"></ion-icon>
+      </button>
+  </ion-buttons>   
+</ion-navbar>
+
+<ion-content>
+
+
+  <ion-row baseline class="menucontainer">
+    <ion-col *ngFor="let media of piclist">
+      <div class="media-item"  (click)="openPreviewModal(media)">
+        <img  src="http://192.168.1.117:8081/{{media.simple_path}}{{media.simple_name}}" controls style="width:100%;height:100%" />
+      </div>
+    </ion-col>
+  </ion-row>
+
+
+
+</ion-content>

@@ -1,0 +1,128 @@
+.photo-album-modal {
+  .oldmedia {
+    background-color:#fff;
+    ion-scroll {
+      border-bottom:#dedede solid 1px;
+      white-space:nowrap;
+      height:120px;
+    }
+    ion-scroll scroll-content {
+      padding:10px 0 0 10px;
+    }    
+    .img-item {
+      display:inline-block;
+      width:100px;
+      height:100px;
+      margin:0 10px 10px 0; 
+      border:#dedede solid 1px;
+      background-size:cover;
+      background-position:center;
+      background-repeat:no-repeat;
+      position: relative;
+    }
+    .img-item span {
+      display:block;
+      position: absolute;
+      background-color:rgba(0,0,0,.7);
+      color:#fff;
+      bottom:0;
+      left:0;
+      right:0;
+      line-height:180%;
+      text-align:center;
+    }
+    
+    ion-list-header {
+      font-weight:bold
+    }
+    
+  }
+  
+  ion-content , ion-content scroll-content {padding:1vw 0 0 1vw}
+  ion-content {
+    ion-row {
+      flex-wrap:wrap;
+      padding:0;
+    }
+     ion-col {
+       flex:none;
+       padding:0;
+       text-align:center;
+       width:32vw;
+       margin:0 1vw 1vw 0;
+       font-size:0;
+     }
+     
+     .media-item{
+       border:#dedede solid 1px;
+        background-size:cover;
+        background-position:center;
+        background-repeat:no-repeat;
+       display: -webkit-inline-box;
+       width:32vw;
+       height:32vw;       
+       -webkit-box-align: center;
+       -moz-box-align: center;
+       -webkit-box-pack: center;
+       -moz-box-pack: center;
+     }   
+
+  }
+  .mediabuttonbar ion-col {
+    padding:0
+  }
+  .mediabuttonbar button {
+  	font-size:2rem;
+    padding:5px 0;
+  }
+
+}
+
+ion-action-sheet.hmenus{
+   .action-sheet-group {
+    display:flex;
+    flex-direction: row
+  }
+
+  .action-sheet-button{
+    font-size:2rem;
+    padding:16px;
+    color:color($colors , primary);
+    border-bottom:0;
+    border-right:#d6d6da solid 1px;
+  }
+
+  .action-sheet-button:last-child {
+    border-right:0;
+  }
+
+  .action-sheet-button.camera {
+    color:#ffcc00
+  } 
+
+  .action-sheet-button.videocam {
+    color:color($colors , secondary)
+  } 
+
+
+  .button-inner {
+    padding:5px;
+    line-height:1;
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .action-sheet-icon {
+    margin:0;    
+    margin-bottom:5px;
+    font-size:2em
+  }
+
+  .action-sheet-group:last-child .action-sheet-button {
+    margin:0;
+  }
+
+
+}

@@ -1,0 +1,24 @@
+<ion-content>
+    <form #mainForm="ngForm" novalidate>
+        <ion-item baseline class="menucontainer">
+            <ion-label required>工程节点</ion-label>
+            <ion-select [(ngModel)]="process.pnode_id" interface="action-sheet" cancelText="取消" okText="确定">
+                <ion-option [value]="item.pnode_id" *ngFor="let item of nodes">{{item.node_name}}</ion-option>
+            </ion-select>   
+        </ion-item>
+        <ion-item baseline class="menucontainer">
+            <ion-label required>月份</ion-label>
+            <ion-input type="text" [(ngModel)]="process.act_date"  ngControl="checkDate" #checkDate="ngForm"   required></ion-input>
+        </ion-item>
+
+        <ion-item>
+            <ion-label required>当前进度</ion-label>
+            <ion-input type="number" [(ngModel)] = "process.act_process"  min="0" max="100" placeholder="请输入当前进度">%</ion-input>             
+        </ion-item>
+        <ion-item>
+            <ion-label>备　　注</ion-label>
+            <ion-textarea [(ngModel)]="process.nodememo" placeholder="填写备注" ngControl="memo" #memo="ngForm"></ion-textarea>
+        </ion-item>
+
+    </form>
+</ion-content>

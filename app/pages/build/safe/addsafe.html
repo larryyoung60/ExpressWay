@@ -1,0 +1,12 @@
+<ion-content>
+    <form #mainForm="ngForm" novalidate>
+        <ion-item ion-item *ngFor="let item of questions let ix = index"  style="padding-left:0">
+         <span item-left class="sn">{{ix+1}}.</span>
+          <ion-label> {{item.item_content}} </ion-label> 
+        </ion-item>
+        <ion-item>
+            <ion-label>备　　注</ion-label>
+            <ion-textarea  placeholder="填写备注" ngControl="loc_content" #memo="ngForm"></ion-textarea>
+        </ion-item>
+    </form>
+</ion-content>

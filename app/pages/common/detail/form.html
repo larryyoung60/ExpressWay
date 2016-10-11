@@ -1,0 +1,77 @@
+<ion-toolbar secondary>
+  <ion-buttons left>
+    <button (click)="close()" large>
+      <ion-icon name="close"></ion-icon>
+    </button>
+  </ion-buttons>
+  <ion-title>{{title}}</ion-title>
+  <ion-buttons end>
+    <button (click)="save(mainForm)">
+      <ion-icon name="share-alt"></ion-icon>
+      保存
+    </button>
+  </ion-buttons>
+</ion-toolbar>
+
+<ion-content class="business-form common-detail-form-page">
+  <form #mainForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        <ion-label required>病害位置</ion-label>
+        <ion-input type="number" [(ngModel)]="result.stakeNumK1" (ngModelChange)="onInputChange()" 
+        ngControl="stakeNumK1" #stakeNumK1="ngForm" required max="4" class="stakeNumK"></ion-input>
+        <ion-input type="number" [(ngModel)]="result.stakeNumP1" (ngModelChange)="onInputChange()" 
+        ngControl="stakeNumP1" #stakeNumP1="ngForm" required max="3" class="stakeNumP"></ion-input>
+      </ion-item>         
+      <ion-item *ngIf="isEditing">
+        养护类别
+        <span item-right>{{result.catalog}}</span>
+      </ion-item>  
+      <ion-item *ngIf="isEditing">
+        养护项目
+        <span item-right>{{result.weixiuFangAn || "无维修方案"}}</span>
+      </ion-item>
+      <ion-item *ngIf="!isEditing">
+        <ion-label required>养护类别</ion-label>
+        <ion-select [(ngModel)]="result.catalog" (ionChange)="onCatalogChange()" required interface="action-sheet" cancelText="取消" okText="确定">
+          <ion-option [value]="item.name" *ngFor="let item of catalogs">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>      
+      <ion-item *ngIf="!isEditing">
+        <ion-label required>养护项目</ion-label>
+        <ion-select [(ngModel)]="result.weixiuFangAn" (ionChange)="onSolutionChange()" required interface="action-sheet" cancelText="取消" okText="确定">
+          <ion-option [value]="item.name" *ngFor="let item of solutions">{{item.name}} {{item.jiliangUnit}} {{item.jiliangDesc}}</ion-option>
+        </ion-select>
+      </ion-item>  
+      <ion-item *ngIf="jiliangOptions.length">
+        <ion-label [attr.required]="jiliangOptions.lengthRequired || null">&nbsp;&nbsp;长度(m)</ion-label>
+        <ion-input type="number" [(ngModel)]="result.length"  placeholder="填写长度"  (ngModelChange)="onInputChange()" 
+        ngControl="length" [required]="jiliangOptions.lengthRequired || null"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="jiliangOptions.width">
+        <ion-label [attr.required]="jiliangOptions.widthRequired || null">&nbsp;&nbsp;宽度(m)</ion-label>
+        <ion-input type="number" [(ngModel)]="result.width"  placeholder="填写宽度"  (ngModelChange)="onInputChange()" 
+        ngControl="width" [required]="jiliangOptions.widthRequired || null"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="jiliangOptions.height">
+        <ion-label [attr.required]="jiliangOptions.heightRequired || null">厚度(cm)</ion-label>
+        <ion-input type="number" [(ngModel)]="result.height"  placeholder="填写厚度"  (ngModelChange)="onInputChange()" 
+        ngControl="height" [required]="jiliangOptions.heightRequired || null"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="jiliangOptions.quantity">
+        <ion-label [attr.required]="jiliangOptions.quantityRequired || null">　工程量</ion-label>
+        <ion-input type="number" [(ngModel)]="result.gongchengL"  placeholder="填写工程量"  (ngModelChange)="onInputChange()" 
+        ngControl="height" [required]="jiliangOptions.quantityRequired || null"></ion-input>
+        <span item-right>{{result.jiliangUnit}}</span>
+      </ion-item>
+      <ion-item *ngIf="!jiliangOptions.quantity">
+        　工程量
+        <span item-right>{{result.gongchengL}}{{result.jiliangUnit}}</span>        
+      </ion-item>
+      <ion-item>
+        工程量描述
+        <span item-right>{{result.jiliangDescSave}}</span>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

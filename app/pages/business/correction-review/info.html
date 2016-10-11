@@ -1,0 +1,77 @@
+<ion-content class="business-form no-header">
+  <form #mainForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item>
+        　检查单位
+        <span item-right>{{result.jianchaUnit}}</span>
+      </ion-item>
+      <ion-item>
+        　检查人
+        <span item-right>{{result.jianchaUsername}}</span>
+      </ion-item>
+      <ion-item>        
+        高速名称
+        <span item-right>{{result.highwayName}}</span>
+      </ion-item>
+      <ion-item>
+        行车方向
+        <span item-right>{{result.fangxiang}}</span>
+      </ion-item>
+      <ion-item>
+        检查日期
+        <span item-right>{{result.checkDate}}</span>
+      </ion-item>      
+      <ion-item>
+        车　　道
+        <span item-right>{{result.chedao}}</span>
+      </ion-item>
+
+      <ion-item>
+        桩号位置
+        <span item-right>{{result.zhuanghaoweizhi}}</span>
+      </ion-item>
+      
+      <ion-item>
+        桩　　号
+        <span item-right>{{result.stakeNum}}</span>
+      </ion-item>
+
+      <ion-item>
+        检查类别
+        <span item-right>{{result.caseCatalog}}</span>
+      </ion-item>
+      <ion-item>
+        检查项目
+        <span item-right>{{result.subCatalog}}</span>
+      </ion-item>
+      <ion-item>
+        整改次数
+        <span item-right>{{result.padanTimes}}</span>
+      </ion-item>
+      <ion-item>
+        整改期限
+        <span item-right>{{result.zhenggaiQixian}}天</span>
+      </ion-item>
+      <ion-item>
+        整改方式
+        <span item-right>{{result.zhenggaiFangshi}}</span>
+      </ion-item>
+      <ion-item>
+        扣　　分
+        <span item-right>{{result.koufen}}分</span>
+      </ion-item>
+      <ion-item>
+        整改原因
+        <span item-right>{{result.zhengaiYuanyin}}</span>
+      </ion-item>
+      <ion-item>
+        整改完成情况
+        <span item-right>{{result.zhenggaiWanchengStatus}}</span>
+      </ion-item>
+      <ion-item>
+        备　　注
+        <span item-right>{{result.beizhu}}</span>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

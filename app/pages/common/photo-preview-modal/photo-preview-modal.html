@@ -1,0 +1,21 @@
+<ion-navbar favorite>
+  <ion-title>{{mediaTitle || "照片"}}预览 ({{currentIndex+1}}/{{medias.length}})</ion-title>  
+  <ion-buttons end>
+    <button (click)="remove()" [hidden]="!allowDelete">
+      <ion-icon name="trash"></ion-icon>
+      删除
+    </button>
+  </ion-buttons>
+</ion-navbar>
+
+<ion-content class="photo-preview-modal">
+  <ion-slides #imageSlides pager [options]="mySlideOptions" (ionWillChange)="onSlideChangeStart($event)">
+    <ion-slide *ngFor="let media of medias">
+      <div class="previwer">
+        <video *ngIf="media.type == 'video'"  [src]="(media.isBase64 ? 'data:video/mp4;base64,'+media.data : media.path)" controls></video>
+        <audio *ngIf="media.type == 'audio'" [src]="(media.isBase64 ? 'data:audio/amr;base64,'+media.data : media.path)" controls></audio>
+        <img  *ngIf="media.type !='video' && media.type !='audio'" [src]="(media.isBase64 ? 'data:image/jpg;base64,'+media.data : media.path)">
+      </div>
+    </ion-slide>
+  </ion-slides>
+</ion-content>

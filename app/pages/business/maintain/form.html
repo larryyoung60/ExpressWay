@@ -1,0 +1,25 @@
+<ion-content class="business-form">
+  <form #mainForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item-divider light>填写维修反馈</ion-item-divider>
+      <ion-item>
+        <ion-label required>维修负责人</ion-label>
+        <ion-select [(ngModel)]="result.fuzeUser" cancelText="取消" okText="确定" interface="action-sheet">
+          <ion-option [value]="item.userName" *ngFor="let item of wxUsers">{{item.userName}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label required>维修反馈人</ion-label>
+        <ion-input type="text" [(ngModel)]="result.feedbackUser" ngControl="feedbackUser" #feedbackUser="ngForm" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label required>维修时间</ion-label>
+        <ion-input type="datetime" [(ngModel)]="result.FeedbackTime" ngControl="FeedbackTime" #FeedbackTime="ngForm" required></ion-input>
+      </ion-item>
+      <ion-item>
+        <ion-label>维修说明</ion-label>
+        <ion-textarea type="text" [(ngModel)]="result.FeedbackDesc" ngControl="FeedbackDesc" #FeedbackDesc="ngForm"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>

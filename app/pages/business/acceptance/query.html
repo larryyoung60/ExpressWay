@@ -1,0 +1,46 @@
+<ion-navbar primary>
+  <ion-title>监理验收记录({{tasks.length}}/{{allTasks.length}})</ion-title>
+  <ion-buttons end>
+    <button large (click)="presentPopover($event)" [disabled]="isLoading || allTasks.length == 0"> 
+        <ion-icon name="more"></ion-icon>
+      </button>
+  </ion-buttons>   
+</ion-navbar>
+<ion-toolbar text-center class='condition-toolbar'>
+  <div style="">{{condition.road}} , {{condition.direction}} , {{condition.dateOrder}} , {{condition.stakeOrder}}</div>
+</ion-toolbar>
+<!--<ion-toolbar primary>
+  <ion-row>
+    <ion-col  width-50>
+      <ion-item>
+        <ion-label>高速名称</ion-label>
+        <ion-select [(ngModel)]="condition.road" (ionChange)="onRoadChange()" cancelText="取消" okText="确定" interface="action-sheet">
+          <ion-option [value]="item.totalRouteName" *ngFor="let item of roads">{{item.totalRouteName}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+    <ion-col width-50> 
+      <ion-item no-pading1>
+        <ion-label>行车方向</ion-label>
+        <ion-select [(ngModel)]="condition.direction" (ionChange)="onDirectionChange()" cancelText="取消" okText="确定" interface="action-sheet">
+          <ion-option [value]="item.value" *ngFor="let item of directions">{{item.text}}</ion-option>
+        </ion-select>
+      </ion-item>
+    </ion-col>
+  </ion-row>
+</ion-toolbar>-->
+<ion-content>
+  <ion-refresher (ionRefresh)="query($event)">
+    <ion-refresher-content pullingText="下拉刷新" refreshingText="查询验收任务..."></ion-refresher-content>
+  </ion-refresher>
+  <h3 [hidden]="tasks.length>0 || isLoading" text-center gray>没有任何验收任务!</h3>
+  <ion-list [virtualScroll]="tasks" *ngIf="tasks.length>0">
+    <button ion-item *virtualItem="let item let ix = index" (click)="accept(item)">
+      <span item-left class="sn">{{ix+1}}.</span>
+      <strong class="caseid">{{item.caseID}}<span class='taskdate'>{{item.gongchengweizhi}}</span></strong>
+      <p>{{item.yanghuXiangmu}} {{item.weixiuFangAn}}</p>
+      <p>要求维修期限: {{item.AskFinsihedTime}}</p>
+    </button>
+  </ion-list>
+</ion-content>
+<!--病害类型 , 桩号 筛选-->

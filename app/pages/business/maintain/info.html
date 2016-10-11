@@ -1,0 +1,47 @@
+<ion-content class="business-form">
+    <ion-list>
+
+      <ion-item-divider light>派单信息</ion-item-divider>
+      <ion-item>
+        案件编号
+        <span item-right>{{result.caseID}}</span>        
+      </ion-item>  
+      <ion-item>
+        <ion-label>管理单位</ion-label>
+        <span item-right>{{result.guanliDanwei}}</span>
+      </ion-item>  
+      <ion-item>
+        <ion-label>维修单位</ion-label>
+        <span item-right>{{result.weixiuDanwei}}</span>
+      </ion-item> 
+      <ion-item>
+        <ion-label>维修派单人</ion-label>
+        <span item-right>{{result.SendsingleUserName}}</span>
+      </ion-item>  
+      <ion-item>
+        <ion-label>要求维修时限</ion-label>
+        <span item-right>{{result.AskFinsihedTime}}</span>
+      </ion-item>    
+      <ion-item-divider light>路巡上报信息</ion-item-divider>
+      <ion-item>
+        高速名称
+        <span item-right>{{result.routeName}}</span>
+      </ion-item>
+      <ion-item>
+        工程位置
+        <span item-right>{{result.gongchengWeizhi}}</span>
+      </ion-item>
+      <ion-item>
+        清单序号
+        <span item-right>{{result.xuhao}}</span>
+      </ion-item>
+      <ion-item>
+        维修项目
+        <span item-right>{{result.weixiuItem}}</span>
+      </ion-item>
+      <ion-item>
+        养护项目
+        <span item-right>{{result.yanghuXiangmu}}</span>
+      </ion-item>
+    </ion-list>
+</ion-content>

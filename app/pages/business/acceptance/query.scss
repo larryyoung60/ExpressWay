@@ -1,0 +1,18 @@
+.acceptance-query-page {
+    .taskdate {
+        float:right;
+        color:color($colors , primary);
+        font-size:12px;
+    }
+    .caseid {font-size:14px}
+    
+    span.sn {
+        font-size:2.4rem;   
+        text-align:center;
+        display:inline-block;  
+        width:50px;
+    }
+
+    button p {line-height:170%}
+    
+}

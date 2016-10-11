@@ -1,0 +1,14 @@
+<ion-navbar primary>
+  <ion-title>{{dyParams.project_name}}</ion-title>
+  <ion-buttons end>
+    <button  (click)="Save()" >保存并提交</button>
+  </ion-buttons>   
+</ion-navbar>
+
+
+<ion-tabs tabbarPlacement="bottom">
+
+  <ion-tab tabIcon="information-circle" [root]="trouble"  [rootParams] = "dyParams" ></ion-tab>
+  <ion-tab tabIcon="images" [root]="photo" [rootParams] = "dyParams"></ion-tab>
+   <ion-tab tabIcon="planet" [root]="troubleinfo" [rootParams] = "dyParams"></ion-tab>
+</ion-tabs>

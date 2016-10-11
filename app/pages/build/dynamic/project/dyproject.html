@@ -1,0 +1,54 @@
+
+<ion-content class="business-form">
+    <ion-list>
+      <ion-item-divider light>项目基础信息</ion-item-divider>
+      <ion-item>
+        项目编号
+        <span item-right>{{project.project_code}}</span>        
+      </ion-item>  
+      <ion-item>
+        投资方
+        <span item-right>{{project.loc_name}}</span>        
+      </ion-item>  
+      <ion-item>
+        建设方
+        <span item-right>{{project.build_name}}</span>        
+      </ion-item>  
+      <ion-item>
+        实际开工时间
+        <span item-right>{{project.act_begin}}</span>        
+      </ion-item>  
+      <ion-item>
+       预计完工时间
+        <span item-right>{{project.plan_end}}</span>        
+      </ion-item> 
+      <ion-item>
+       用地性质
+        <span item-right>{{project.property_name}}</span>        
+      </ion-item> 
+      <ion-item>
+       地上建筑面积
+        <span item-right>{{project.floor_area}}</span>        
+      </ion-item> 
+      <ion-item>
+       地下建筑面积
+        <span item-right>{{project.underground_area}}</span>
+    </ion-item> 
+      <ion-item>
+       容积率
+        <span item-right>{{project.volume_rate}}</span>
+    </ion-item> 
+      <ion-item>
+       绿地率
+        <span item-right>{{project.green_rate}}</span>
+    </ion-item> 
+    <ion-item>
+       设计单位
+        <span item-right>{{project.design_name}}</span>
+    </ion-item> 
+    <ion-item>
+       勘察单位
+        <span item-right>{{project.survey_name}}</span>
+    </ion-item> 
+    </ion-list>
+</ion-content>

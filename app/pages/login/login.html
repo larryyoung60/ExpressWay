@@ -1,0 +1,39 @@
+<ion-navbar *navbar primary>
+  <ion-title>用户登录</ion-title>
+</ion-navbar>
+
+<ion-content>
+  <form #loginForm="ngForm" novalidate>
+    <ion-list>
+      <div class="logo">
+        <img src="img/logo.png">
+      </div>
+
+
+      <ion-item>
+        <ion-label floating primary>用户名</ion-label>
+        <ion-input [(ngModel)]="login.username" ngControl="username" type="text" #username="ngForm" required>
+        </ion-input>
+      </ion-item>
+      <p [hidden]="username.valid || submitted == false " danger padding-left>
+        请输入用户名
+      </p>
+
+      <ion-item>
+        <ion-label floating primary>密码</ion-label>
+        <ion-input [(ngModel)]="login.password" ngControl="password" type="password" #password="ngForm" required1>
+        </ion-input>
+      </ion-item>
+      <p [hidden]="password.valid || submitted == false" danger padding-left>
+        请输入密码
+      </p>
+
+      <div padding>
+        <button (click)="onLogin(loginForm)" type="submit" primary block large>登录</button>
+      </div>
+
+
+
+  </ion-list>
+  </form>
+</ion-content>

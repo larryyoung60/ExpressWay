@@ -1,0 +1,61 @@
+
+<div class="oldmedia" *ngIf="oldMedias.length>0">
+    <ion-list-header secondary>{{mediaParams.oldTitle}} ({{oldMedias.length}})</ion-list-header>
+    <ion-scroll scrollX="true">
+      <div class='img-item' *ngFor="let media of oldMedias" 
+      [ngStyle]="{'background-image':'url('+(media.isBase64 ? 'data:image/jpg;base64,'+media.data : media.path)+')'}" 
+      (click)="openOldPrevModal(media)">
+      ` <span>{{media.status}}</span>
+      </div>
+    </ion-scroll>
+  <ion-list-header>{{mediaParams.title}} ({{medias.length}})</ion-list-header>    
+</div>
+
+<ion-content class="has-header">
+  <ion-row baseline class="menucontainer">
+    <ion-col *ngFor="let media of medias">
+      <div class="media-item" [ngStyle]="{'background-image':'url('+(media.isBase64 ? 'data:image/jpg;base64,'+media.data : media.path)+')'}" (click)="openPreviewModal(media)">
+        <video *ngIf="media.type == 'video'" [src]="media.path" controls style="width:100%;height:100%"></video>
+        <audio *ngIf="media.type =='audio'" [src]="media.path" controls style="width:100%;height:100%"></audio>
+      </div>
+    </ion-col>
+  </ion-row>
+  <!--
+  <button primary fab fab-right fab-bottom class="btnUpload" style="position:fixed" (click)="capturePhoto()">
+    <ion-icon name='camera'></ion-icon>
+  </button>
+  -->
+  <!--
+  <button fab fab-fixed fab-right fab-bottom secondary class="photo-album-button" (click)="showMenu()">
+    <ion-icon name="camera"></ion-icon>
+  </button>
+  -->
+</ion-content>
+<ion-toolbar position="bottom" class="mediabuttonbar">
+  <ion-row>
+    <ion-col>
+      <button secondary clear block (click)="capturePhotoFromAlbum()">
+        <ion-icon name="albums"></ion-icon>
+        相册
+      </button>
+    </ion-col>
+    <ion-col>
+      <button clear block (click)="captureAudio()">
+        <ion-icon name="mic"></ion-icon>
+        录音
+      </button>
+    </ion-col>
+    <ion-col>
+      <button clear block (click)="captureVideo()">
+        <ion-icon name="videocam"></ion-icon>
+        摄像
+      </button>
+    </ion-col>
+    <ion-col>
+      <button clear block danger (click)="capturePhotoFromCamera()">
+        <ion-icon name="camera"></ion-icon>
+        拍照
+      </button>
+    </ion-col>
+  </ion-row>
+</ion-toolbar>

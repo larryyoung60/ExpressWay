@@ -1,0 +1,60 @@
+<ion-content class="business-form">
+    <ion-list>
+      <ion-item-divider light>派单信息</ion-item-divider>
+      <ion-item>
+        案件编号
+        <span item-right>{{result.caseID}}</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>管理单位</ion-label>
+        <span item-right>{{result.MantanceManager}}</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>维修单位</ion-label>
+        <span item-right>{{result.ReceivedUnitName}}</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>验收派单人</ion-label>
+        <span item-right>{{result.YanshouPaidanRen}}</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>维修负责人</ion-label>
+        <span item-right>{{result.sendsingManager}}</span>
+      </ion-item>      
+
+      <ion-item>
+        <ion-label>要求维修时限</ion-label>
+        <span item-right>{{result.AskFinsihedTime}}</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>实际维修时间</ion-label>
+        <span item-right>{{result.FeedbackTime}}</span>
+      </ion-item>
+      <ion-item>
+        <ion-label>要求验收时限</ion-label>
+        <span item-right>{{result.SendToPDATime}} - {{result.AskPDAFinishedTime}}</span>
+      </ion-item>
+
+      <ion-item-divider light>路巡上报信息</ion-item-divider>
+      <ion-item>
+        高速名称
+        <span item-right>{{result.routeName}}</span>
+      </ion-item>
+      <ion-item>
+        工程位置
+        <span item-right>{{result.gongchengweizhi}}</span>
+      </ion-item>
+      <ion-item>
+        清单序号
+        <span item-right>{{result.xuhao}}</span>
+      </ion-item>
+      <ion-item>
+        维修项目
+        <span item-right>{{result.weixiuFangAn}}</span>
+      </ion-item>
+      <ion-item>
+        养护项目
+        <span item-right>{{result.yanghuXiangmu}}</span>
+      </ion-item>
+    </ion-list>
+</ion-content>

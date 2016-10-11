@@ -1,0 +1,22 @@
+<ion-navbar primary>
+  <ion-title>安全检查公司列表</ion-title>
+ 
+</ion-navbar>
+<ion-content>
+  <!--<ion-refresher (ionRefresh)="query($event)">
+    <ion-refresher-content pullingText="下拉刷新" refreshingText="查询维修任务..."></ion-refresher-content>
+  </ion-refresher>
+  <h3 [hidden]="safes.length>0 " text-center gray>没有维修任务!</h3>-->
+  <ion-list>
+    <button ion-item *ngFor="let item of complist let ix = index" (click)="selectSafe(item)" style="padding-left:0">
+      <span item-left class="sn">{{ix+1}}.</span>
+      <div>
+        <strong class="caseid">{{item.fullname}}
+          <span class='taskdate'>{{item.cur_status}} </span>
+        
+        </strong>
+      </div>
+    </button>
+
+  </ion-list>
+</ion-content>

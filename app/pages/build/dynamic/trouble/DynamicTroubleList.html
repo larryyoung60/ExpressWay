@@ -1,0 +1,30 @@
+<ion-navbar primary>
+  <ion-title>项目列表</ion-title>
+  <ion-buttons end>
+ 
+    <button large (click)="presentPopover($event)" >
+        <ion-icon name="more"></ion-icon>
+      </button>
+  </ion-buttons>   
+</ion-navbar>
+<ion-content>
+  <ion-refresher (ionRefresh)="Next($event)">
+    <ion-refresher-content pullingText="下拉刷新" refreshingText="查询在建项目..."></ion-refresher-content>
+  </ion-refresher>
+  <ion-list>
+    <button ion-item *ngFor="let item of projects let ix = index" (click)="SelectProject(item)" style="padding-left:0" 
+    [ngClass]="{'complete':item.zhenggaiWanchengStatus == '整改完成' , 'delay':item.zhenggaiWanchengStatus == '申请延期'}">
+      <span item-left class="sn">{{ix+1}}.</span> 
+      <div>
+        <strong class="caseid"><span class='taskdate'>{{item.project_name}} </span></strong>
+      </div>
+    </button>
+
+    <ion-item>
+     <button class ="button button-block button-positive" >{{curpage}}/{{totalpage}} </button>
+
+    <button class ="button button-block button-positive" (click)= "Last()">上一页</button> 
+    <!--<button (click)= "Next()" class ="button  button-block button-positive" >下一页</button>-->
+    </ion-item>
+  </ion-list>
+</ion-content>

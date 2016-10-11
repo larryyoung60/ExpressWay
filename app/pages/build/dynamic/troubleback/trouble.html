@@ -1,0 +1,23 @@
+<ion-content>
+    <form #mainForm="ngForm" novalidate>
+        <ion-list> 
+        <ion-item baseline class="menucontainer">
+            <ion-label required>反馈内容</ion-label>
+            <ion-textarea type="text" [(ngModel)]="trouble.resolve"  ngControl="memo" #checkDate="ngForm"   required></ion-textarea>
+        </ion-item>
+
+          <ion-item baseline class="menucontainer">
+            <ion-label required>反馈状态</ion-label>
+            <ion-select [(ngModel)]="trouble.cur_status" interface="action-sheet" cancelText="取消" okText="确定">
+                <ion-option [value]="0" >已处理</ion-option>
+                <ion-option [value]="1" >已解决</ion-option>
+            </ion-select>   
+        </ion-item>
+         
+        </ion-list> 
+    </form>
+
+
+    
+
+</ion-content>

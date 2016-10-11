@@ -1,0 +1,15 @@
+@import '../theme/app.variables';
+
+.setting-page {
+    ion-list-header {
+       
+        background-color:#eee;
+        font-weight:bold;
+    }
+    ion-item ion-label {
+    }
+    
+    .item-select ion-label {
+        color:#000
+    }
+}

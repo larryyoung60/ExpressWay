@@ -1,0 +1,108 @@
+<ion-content class="business-form no-header">
+  <form #mainForm="ngForm" novalidate>
+    <ion-list>
+      <ion-item style="text-align:center;background-color:#e8f4ff;font-weight:bold" *ngIf="hasBaseinfo">
+        {{result.jianchaUsername}} , {{result.highwayName}} , {{result.fangxiang}}
+        <button item-right outline (click)="editBaseinfo()">修改</button>
+      </ion-item>
+      <ion-item *ngIf="!hasBaseinfo">
+        <ion-label required>　检查人</ion-label>
+        <ion-input type="text" [(ngModel)]="result.jianchaUsername" (change)="onBaseinfoChange()"  ngControl="jianchaUsername" #jianchaUsername="ngForm" required></ion-input>
+      </ion-item>
+      <ion-item *ngIf="!hasBaseinfo">
+        <ion-label required>高速名称</ion-label>
+        <ion-select [(ngModel)]="result.highwayName" (ionChange)="onRoadChange()" cancelText="取消" okText="确定" interface="action-sheet">
+          <ion-option [value]="item.totalRouteName" *ngFor="let item of roads">{{item.totalRouteName}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item *ngIf="!hasBaseinfo">
+        <ion-label required>行车方向</ion-label>
+        <ion-select [(ngModel)]="result.fangxiang" (ionChange)="onBaseinfoChange()" cancelText="取消" okText="确定" interface="action-sheet">
+          <ion-option [value]="item.value" *ngFor="let item of directions">{{item.text}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label required>检查日期</ion-label>
+        <ion-input type="date" [(ngModel)]="result.checkDate"  ngControl="checkDate" #checkDate="ngForm"  required></ion-input>
+      </ion-item>      
+      <ion-item>
+        <ion-label required>车　　道</ion-label>
+        <ion-select [(ngModel)]="result.chedao"    ngControl="chedao" #chedao="ngForm" cancelText="取消" okText="确定" multiple="true" interface="action-sheet">
+          <ion-option [value]="item" *ngFor="let item of chedaoItems">{{item}}</ion-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-label required>桩号位置</ion-label>
+        <ion-select [(ngModel)]="result.zhuanghaoweizhi" cancelText="取消" okText="确定" interface="action-sheet">
+          <ion-option [value]="item.name" *ngFor="let item of zhuanghaoweizhiItems">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      
+      <!--道路桩号,联络线,区间,其他-->
+      <!--单一桩号-->
+      <ion-item *ngIf="result.zhuanghaoweizhi=='道路桩号' || result.zhuanghaoweizhi == '联络线'">
+        <ion-label required>桩　　号</ion-label>
+        <ion-input type="number" [(ngModel)]="result.stakeNumK1" ngControl="stakeNumK1" #stakeNumK1="ngForm" required maxlength="4" class="stakeNumK"></ion-input>
+        <ion-input type="number" [(ngModel)]="result.stakeNumP1" ngControl="stakeNumP1" #stakeNumP1="ngForm" required maxlength="3" class="stakeNumP"></ion-input>
+      </ion-item>
+      <!--桩号区间-->
+      <ion-item *ngIf="result.zhuanghaoweizhi=='区间'">
+        <ion-label required>开始桩号</ion-label>
+        <ion-input type="number" [(ngModel)]="result.stakeNumK1" ngControl="stakeNumK1" #stakeNumK1="ngForm" required maxlength="4" class="stakeNumK"></ion-input>
+        <ion-input type="number" [(ngModel)]="result.stakeNumP1" ngControl="stakeNumP1" #stakeNumP1="ngForm" required maxlength="3" class="stakeNumP"></ion-input>
+      </ion-item>
+      <ion-item *ngIf="result.zhuanghaoweizhi=='区间'">
+        <ion-label required>结束桩号</ion-label>
+        <ion-input type="number" [(ngModel)]="result.stakeNumK2" ngControl="stakeNumK2" #stakeNumK2="ngForm" required maxlength="4" class="stakeNumK"></ion-input>
+        <ion-input type="number" [(ngModel)]="result.stakeNumP2" ngControl="stakeNumP2" #stakeNumP2="ngForm" required maxlength="3" class="stakeNumP"></ion-input>
+      </ion-item>
+      <!--其他文本输入-->
+      <ion-item *ngIf="result.zhuanghaoweizhi=='其他'">
+        <ion-label required>其　　他</ion-label>
+        <ion-input type="text" [(ngModel)]="result.stakeNum" placeholder="请填写位置信息" ngControl="stakeNum" #stakeNum="ngForm" required></ion-input>
+      </ion-item>
+      
+      <ion-item>
+        <ion-label required>检查类别</ion-label>
+        <ion-select [(ngModel)]="result.caseCatalog" (ionChange)="onCatalogChange()" interface="action-sheet" cancelText="取消" okText="确定">
+          <ion-option [value]="item.name" *ngFor="let item of catalogs">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label required>检查项目</ion-label>
+        <ion-select [(ngModel)]="result.subCatalog" interface="action-sheet" cancelText="取消" okText="确定">
+          <ion-option [value]="item.name" *ngFor="let item of subCatalogs">{{item.name}}</ion-option>
+        </ion-select>
+      </ion-item>
+      <ion-item>
+        <ion-label required>整改期限</ion-label>
+        <ion-select [(ngModel)]="result.zhenggaiQixian" interface="action-sheet" cancelText="取消" okText="确定">
+          <ion-option [value]="item" *ngFor="let item of deadlines">{{item}}</ion-option>
+        </ion-select>        
+        <span item-right>天</span>
+      </ion-item>
+      <ion-item>
+        <ion-label required>整改方式</ion-label>
+        <ion-select [(ngModel)]="result.zhenggaiFangshi" interface="action-sheet" cancelText="取消" okText="确定">
+          <ion-option [value]="item" *ngFor="let item of correctionTypes">{{item}}</ion-option>
+        </ion-select>              
+      </ion-item>
+      <ion-item>
+        <ion-label required>扣　　分</ion-label>
+        <ion-select [(ngModel)]="result.koufen" interface="action-sheet" cancelText="取消" okText="确定">
+          <ion-option [value]="item" *ngFor="let item of fens">{{item}}</ion-option>
+        </ion-select>   
+        <span item-right>分</span>        
+      </ion-item>
+      <ion-item>
+        <ion-label>整改原因</ion-label>
+        <ion-textarea [(ngModel)]="result.zhengaiYuanyin" placeholder="填写整改原因" ngControl="zhengaiYuanyin" #zhengaiYuanyin="ngForm"></ion-textarea>
+      </ion-item>
+      <ion-item>
+        <ion-label>备　　注</ion-label>
+        <ion-textarea [(ngModel)]="result.beizhu" placeholder="填写备注" ngControl="beizhu" #beizhu="ngForm"></ion-textarea>
+      </ion-item>
+    </ion-list>
+  </form>
+</ion-content>
